@@ -13,6 +13,23 @@ function hasTargetSum(array, target) {
 /*
   Add written explanation of your solution here
 */
+// index.js
+
+function hasTargetSum(array, target) {
+  let seen = new Set();
+
+  for (let num of array) {
+    let complement = target - num;
+    if (seen.has(complement)) {
+      return true;
+    }
+    seen.add(num);
+  }
+
+  return false;
+}
+
+module.exports = hasTargetSum;
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
